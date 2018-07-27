@@ -1,0 +1,21 @@
+<% include partials/header %>
+
+<div class="container">
+   <div class="row">
+      <div id="login_form">
+         <form class="ui form" action="/login" method="POST">
+            <div class="form-group">
+               <input class="form-control" type="text" name="username" placeholder="Username">
+            </div>
+            <div class="form-group">
+               <input class="form-control" type="password" name="password" placeholder="Password">
+            </div>
+            <button class="btn btn-lg btn-success btn-block" type="submit">Login</button>
+            <hr>
+            <a id="orRegister"href="/register"><strong>Don't have an account? Click here to register!</strong></a>
+         </form>
+      </div>
+   </div>
+</div>
+
+<% include partials/footer %>

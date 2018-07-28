@@ -1,12 +1,12 @@
 // Make connection
-const socket = io.connect("afternoon-scrubland-22438.herokuapp.com");
+const socket = io.connect('https://afternoon-scrubland-22438.herokuapp.com');
 
-let message  = document.getElementById('message'),
-	sender   = document.getElementById('sender'),
-	btn      = document.getElementById('btn'),
-	output   = document.getElementById('output'),
-	feedback = document.getElementById('feedback'),
-	reciever = document.getElementById('reciever');
+let message         = document.getElementById('message'),
+	sender          = document.getElementById('sender'),
+	btn             = document.getElementById('btn'),
+	display_message = document.getElementById('display_message'),
+	feedback        = document.getElementById('feedback'),
+	reciever        = document.getElementById('reciever');
 
 // Emit Events
 btn.addEventListener("click", function () {
@@ -42,18 +42,18 @@ btn.addEventListener("click", function () {
 
 // Listen for events from back-end and display corresponding data 
 socket.on('reciever', (data) => {
-	output.innerHTML += '<p><strong>' + data.sender + ': </strong>' + data.content + '</p>'
+	display_message.innerHTML += '<p><strong>' + data.sender + ': </strong>' + data.content + '</p>'
 });
 
 socket.on('sender', (data) => {
 	if (data.content){
-		output.innerHTML += '<p><strong style="color:green">(You): </strong>' + data.content + '</p>'
+		display_message.innerHTML += '<p><strong style="color:green">(You): </strong>' + data.content + '</p>'
 	} else {
-		output.innerHTML += '<p style="color:#77410fbf"><strong style="color:#77410fbf">Warning! </strong>' + data + '</p>'
+		display_message.innerHTML += '<p style="color:#77410fbf"><strong style="color:#77410fbf">Warning! </strong>' + data + '</p>'
 	}
 	
 });
 
 socket.on('errors', (data) => {
-	output.innerHTML += '<p style="color:red"><strong> Error: </strong>' + data + '</p>'
+	display_message.innerHTML += '<p style="color:red"><strong> Error: </strong>' + data + '</p>'
 });

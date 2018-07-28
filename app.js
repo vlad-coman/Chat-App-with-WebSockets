@@ -7,11 +7,11 @@ const express        = require("express"),
       bodyParser     = require("body-parser"),
       flash          = require("connect-flash"),
       middleware     = require("./middlewares"),
-      User           = require("./models/user");
-      Connection     = require("./models/connection");
-const authRoutes = require("./routes/auth.js")
+      User           = require("./models/user"),
+      Connection     = require("./models/connection"),
+      authRoutes     = require("./routes/auth.js");
 
-require('dotenv').config()
+require('dotenv').config();
 mongoose.connect(process.env.DB_URL);
 app.use(bodyParser.urlencoded({
     extended: true
@@ -58,7 +58,7 @@ const io = socket(server);
 let sockets = {};
 Connection.findById(process.env.SOCKETS_CONNECTIONS_ID, (err, connection) => {
     if (err) {
-        console.log(err)
+        console.log(err);
     } else {
         connection.users.forEach((user) => {
             sockets[user.username] = 'offline';
@@ -137,7 +137,7 @@ app.get("/logout", middleware.isLoggedIn, (req, res) => {
     sockets[loggedUser.username] = 'offline';
     req.logout();
     req.flash("success", "Successfully logged out");
-    res.redirect("/register");
+    res.redirect("/login");
 });
 
 

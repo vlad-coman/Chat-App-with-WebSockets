@@ -46,7 +46,7 @@ socket.on('reciever', (data) => {
 });
 
 socket.on('sender', (data) => {
-	if (data.content){
+	if (data.content && data.reciever !== data.sender){
 		display_message.innerHTML += '<p><strong style="color:green">(You): </strong>' + data.content + '</p>'
 	} else {
 		display_message.innerHTML += '<p style="color:#77410fbf"><strong style="color:#77410fbf">Warning! </strong>' + data + '</p>'

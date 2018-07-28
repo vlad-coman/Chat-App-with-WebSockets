@@ -35,7 +35,7 @@ passport.deserializeUser(User.deserializeUser());
 
 // Setting up currentUser, flash messages to be available in views 
 let loggedUser;
-app.use(function (req, res, next) {
+app.use((req, res, next) => {
     loggedUser = req.user
     res.locals.currentUser = req.user;
     res.locals.error = req.flash("error");
@@ -71,7 +71,7 @@ Connection.findById(process.env.SOCKETS_CONNECTIONS_ID, (err, connection) => {
 // find the connection which contains all registered usernames and sockets ids
 // check if currently logged user is already in the connections DB:
 // - if it is, update its socketId with the socket.id of current connection
-// - if it isn't, add newUser to DB with username(logged in user's username) and socketId(current socket.id)
+// - if it isn't, add new user to DB with username(logged in user's username) and socketId(current socket.id)
 // update 'sockets' object to contain the socket id of the current connection for online users
 io.on('connection', (socket) => {
     if (loggedUser) {
@@ -87,13 +87,13 @@ io.on('connection', (socket) => {
                     connection.save();
                     sockets[loggedUser.username] = socket.id
                 } else {
-                    newUser = {
+                    activeUser = {
                         username: loggedUser.username,
                         socketId: socket.id
                     }
-                    connection.users.push(newUser);
+                    connection.users.push(activeUser);
                     connection.save();
-                    sockets[newUser.username] = socket.id
+                    sockets[activeUser.username] = socket.id
                 }
 
                 // listen for events from front-end and emit based on conditions
@@ -122,9 +122,7 @@ io.on('connection', (socket) => {
                     }
                 });
                 socket.onclose = () => {
-                    activeUser.socketId = socket.id;
-                    connection.save();
-                    sockets[loggedUser.username] = 'offline';
+                    sockets[activeUser.username] = 'offline';
                 };
 
             }

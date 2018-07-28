@@ -46,7 +46,7 @@ app.use("/", authRoutes)
 
 // start server and install socket on server
 const server = app.listen(process.env.PORT, () => {
-    console.log("Server started on port 4000");
+    console.log("Server started!");
 
 });
 const io = socket(server);

@@ -1,5 +1,5 @@
 // Make connection
-const socket = io.connect("http://localhost:4000");
+const socket = io.connect("https://afternoon-scrubland-22438.herokuapp.com");
 
 let message  = document.getElementById('message'),
 	sender   = document.getElementById('sender'),

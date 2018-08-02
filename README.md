@@ -6,7 +6,7 @@ https://afternoon-scrubland-22438.herokuapp.com/
 
 # Tehnologies used
 <li>FRONTEND: HTML5, CSS3, JavaScript, Bootstrap, Socket.IO</li>
-<li>BACKEND: NodeJS, NPM, ExpressJS,REST,PassportJS, Socket.IO.</li>
+<li>BACKEND: NodeJS, NPM, ExpressJS,REST,PassportJS, EJS, Socket.IO.</li>
 <li>DATABASE: MongoDB</li>
 <li>Remote Hosting on Heroku and MongoLab</li>
 

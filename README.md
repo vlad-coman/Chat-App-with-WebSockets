@@ -19,8 +19,8 @@ https://afternoon-scrubland-22438.herokuapp.com/
   <li><a href="https://nodejs.org/en/download/">Node.js</a></li>
   <li><a href="https://www.mongodb.com/">MongoDB</a> - NoSQL database</li>
 </ul>
-<b>Move into  WebSockets_Chat_App folder from the cloned repository</b>
-<pre>cd WebSockets_Chat_AppRoxanaPhoto/</pre>
+<b>Move into cloned or downloaded repository</b>
+<pre>cd Chat-App-with-WebSockets-master</pre>
 <b>Install all dependencies from package.json file like in the example below</b></br>
 <pre>npm init</pre>
 <pre>npm install express ejs dotenv...--save</pre>

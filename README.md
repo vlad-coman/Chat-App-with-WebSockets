@@ -23,7 +23,7 @@ https://afternoon-scrubland-22438.herokuapp.com/
 <pre>cd Chat-App-with-WebSockets-master</pre>
 <b>Install all dependencies from package.json file like in the example below</b></br>
 <pre>npm init</pre>
-<pre>npm install express ejs dotenv...--save</pre>
+<pre>npm install express ejs dotenv ... --save</pre>
 <p><b>Create a .env file where to put your enviroment variables(sensitive information). Those are accessed in code with process.env.VAR_NAME</b></p> 
 
 <b>Run the app</b></br>
